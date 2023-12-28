@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import *
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+import sqlite3
 
 class Program(QMainWindow, uic.loadUiType("TestUi.ui")[0]):
     def __init__(self):
@@ -23,7 +24,6 @@ class Program(QMainWindow, uic.loadUiType("TestUi.ui")[0]):
         self.show()
 
     def stop(self):
-        raise Exception("program Ended")
         self.close()
 
     def run(self):
@@ -37,16 +37,16 @@ class Program(QMainWindow, uic.loadUiType("TestUi.ui")[0]):
             dev_naver_login(driver)
 
             # 3 블로그 검색창에서 검색을 실시한다.
-            # search_in_blog(driver, search_keyword, neighbor_request_message)
+            search_in_blog(driver, search_keyword, neighbor_request_message)
 
         except Exception as e:
             logging.getLogger("main").error(e)
 
     def get_inputs(self):
-        self.username_text: QTextEdit
-        self.password_text: QTextEdit
-        self.neighbor_request_message_text: QTextEdit
-        self.search_keyword_text: QTextEdit
+        self.username_text: QLineEdit
+        self.password_text: QLineEdit
+        self.neighbor_request_message_text: QLineEdit
+        self.search_keyword_text: QLineEdit
 
         username = self.username_text.toPlainText()
         password = self.password_text.toPlainText()

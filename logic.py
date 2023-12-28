@@ -2,6 +2,7 @@ import time
 import pyperclip
 import random
 import logging
+from const import *
 
 from selenium import webdriver
 from selenium.common import NoSuchElementException
@@ -11,7 +12,7 @@ from selenium.webdriver.common.by import By
 
 
 def search_in_blog(driver, search_keyword, neighbor_request_message):
-    driver.get("https://section.blog.naver.com/")
+    driver.get(BLOG_MAIN_URL)
     rand_sleep()
 
     pyperclip.copy(search_keyword)
