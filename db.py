@@ -1,5 +1,22 @@
 import sqlite3
 
+# UserTable
+# id (autogeneration)
+# naver_id (str)
+# comment_count (int)
+# like_count (int)
+# neighbor_request_date (date) 일주일동안 안받으면 삭제하는 로직이 필요
+# created_date
+# updated_date
+
+# UserPostTable
+# id (user key)
+# post_name (str)
+# post_body (str)
+# written_comment (str)
+# is_liked (boolean)
+# created_date
+# updated_date
 
 class DbManager:
     def __init__(self, path):
